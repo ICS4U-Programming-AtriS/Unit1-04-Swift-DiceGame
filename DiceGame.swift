@@ -22,18 +22,18 @@ repeat {
     // RESET COLOR
     print("\u{001B}[0m", terminator: "")
     // Prompt for user's guess
-    print("Enter a guess [\(minNum)-\(maxNum)]: ", terminator:"")
+    print("Enter a guess [\(minNum)-\(maxNum)]: ", terminator: "")
     // Get user's input for the guess
     let userInput = readLine() ?? ""
     // Convert the input to an integer
     if let guess = Int(userInput) {
-        if (guess < minNum || guess > maxNum) {
+        if guess < minNum || guess > maxNum {
             // Error if the user's guess is outside the valid range. [IN RED]
             print("\u{001B}[0;31mERROR: GUESS CAN'T BE OUTSIDE RANGE")
-        } else if (guess > correctNum) {
+        } else if guess > correctNum {
             // Message if the user's guess is too high
             print("\u{001B}[0;34mYour guess is too high!")
-        } else if (guess < correctNum) {
+        } else if guess < correctNum {
             // Message if the user's guess is too low
             print("\u{001B}[0;34mYour guess is too low!")
         } else {
@@ -43,7 +43,7 @@ repeat {
             // Congratulate the user
             print("\u{001B}[0;32mYou got the number right!")
             // BREAK OUT OF THE LOOP
-          break;
+            break
         }
     } else {
         // Error message for non-numeric guess. [IN RED]
